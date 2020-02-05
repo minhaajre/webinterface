@@ -16,7 +16,7 @@
 
 
 
-<p><form name="QuestionForm" method=post action="ipipneo2.cgi" onsubmit="submit_click()">
+<p><form name="QuestionForm">
 <p style="text-align: left;">All responses to this inventory from all respondents are completely confidential and will <strong><u>not</u></strong> be associated with you as an individual. Responses are, however, automatically entered into a database in order to improve norms by age and sex and to assess the statistical properties of item responses for groups of respondents. To ensure confidentiality of your responses to the inventory, <strong>DO NOT</strong> enter your real name in the box below. Please use a nickname or made-up name. If you do not enter a nickname with at least one letter or numeral in it, a random nickname will be generated for you.</p>
 <p>&nbsp;</p>
 <p><span style="font-size: small;"><strong>Your Nickname or Made-up Name</strong></span></p>
@@ -8507,24 +8507,44 @@ C. </TD>
  // send message to the page code
  function submit_click() {
   var answers = new Object();
-  //answers.nickname = String(document.forms["QuestionForm"]["Nick"].value); 
-  answers.nickname = "tester" + String(Math.floor(Math.random()*100));
+  
+  //validation of top input fields
+  var errorMsg = '';
+  if(!document.forms["QuestionForm"]["Nick"].value||
+  !document.forms["QuestionForm"]["Age"].value||
+  !document.forms["QuestionForm"]["Sex"].value||
+  !document.forms["QuestionForm"]["Country"].value||
+  isNaN(document.forms["QuestionForm"]["Age"].value)||
+  document.forms["QuestionForm"]["Age"].value < 14||
+  document.forms["QuestionForm"]["Age"].value > 100){
+    errorMsg = 'Personals left empty.';
+  }
+  if(!document.forms["QuestionForm"]["A"].value||!document.forms["QuestionForm"]["B"].value||!document.forms["QuestionForm"]["C"].value){
+    errorMsg = 'Question items left empty.';
+  }
+  answers.nickname = String(document.forms["QuestionForm"]["Nick"].value); 
+  //answers.nickname = "tester" + String(Math.floor(Math.random()*100));
   answers.sex = String(document.forms["QuestionForm"]["Sex"].value);
-  //answers.age = Number(document.forms["QuestionForm"]["Age"].value);
-  answers.age = Math.floor(Math.random()*3) + 14;
+  answers.age = Number(document.forms["QuestionForm"]["Age"].value);
+  //answers.age = Math.floor(Math.random()*3) + 14;
   answers.country = String(document.forms["QuestionForm"]["Country"].value);
   answers.legal = {"A":String(document.forms["QuestionForm"]["A"].value),"B":String(document.forms["QuestionForm"]["B"].value),"C":String(document.forms["QuestionForm"]["C"].value)};
   answers.psycho = [];
   var i;
   for (i=1;i<=300;i++){
-   if (document.forms["QuestionForm"]["Q"+i].value){
-   answers.psycho.push(Number(document.forms["QuestionForm"]["Q"+i].value));
-   } else{
-     //answers.psycho.push(0);
-     answers.psycho.push(Math.floor(Math.random()*5)+1);
-   }
+    if (document.forms["QuestionForm"]["Q"+i].value){
+      answers.psycho.push(Number(document.forms["QuestionForm"]["Q"+i].value));
+    } else{
+      errorMsg = 'Question items left empty.'
+      //answers.psycho.push(Math.floor(Math.random()*5)+1);
+    }
   }
-  window.parent.postMessage(answers,"*");
+  if(errorMsg === ''){
+    window.parent.postMessage(answers,"*");
+  }else {
+    window.parent.postMessage(errorMsg,"*");
+  }
+
 }
 </script>
 
