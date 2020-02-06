@@ -651,8 +651,36 @@
     <p style="text-align: justify;">​
         &nbsp;
     </p>
-
-   
+    
+    <!-- Two-Domain charts -->
+    <div>
+        <div id="E-A-chart" style="margin: auto; align-content: center; align-self: center; width:600px;height:600px;"></div>
+        <p><strong>Pattern 1.1 PERSONABLE TYPE (High E, High A)</strong></p>
+        <p>Personable Types enjoy interacting with other people. Personable individuals frequently experience and express positive emotions and are therefore typically well-liked by others. They derive satisfaction from helping, and are well-suited for careers in the helping professions (counseling, teaching, nursing, human services). They are described by others as cheerful, confident, sociable, vigorous, enthusiastic, and friendly.</p>
+        <p><strong>Pattern 1.2 DOMINEERING TYPE (High E, Low A)</strong></p>
+        <p>Domineering Types enjoy exerting power and influence over others and strive to control them without taking their feelings into account. They are seen by others as critical, self-centered, stubborn, and bossy.</p>
+        <p><strong>Pattern 1.3 HUMBLE TYPE (Low E, High A)</strong></p>
+        <p>Humble Types are peace-loving, somewhat timid, and seek social acceptance by going along with what others want. These individuals are described by others with terms such as calm, agreeable, cooperative, composed, warm, preserving, and submissive.</p>
+        <p><strong>Pattern 1.4 DISTANT TYPE (Low E, Low A)</strong></p>
+        <p>Distant Types show an active disinterest in other people. They are detached, skeptical, cynical loners who find little joy in human relations. They are described by others as solitary, depressed, worried, introverted, and shy.</p>
+        <div id="E-C-chart" style="margin: auto; align-content: center; align-self: center; width:600px;height:600px;"></div>
+        
+        <div id="E-N-chart" style="margin: auto; align-content: center; align-self: center; width:600px;height:600px;"></div>
+        
+        <div id="E-O-chart" style="margin: auto; align-content: center; align-self: center; width:600px;height:600px;"></div>
+        
+        <div id="A-C-chart" style="margin: auto; align-content: center; align-self: center; width:600px;height:600px;"></div>
+        
+        <div id="A-N-chart" style="margin: auto; align-content: center; align-self: center; width:600px;height:600px;"></div>
+        
+        <div id="A-O-chart" style="margin: auto; align-content: center; align-self: center; width:600px;height:600px;"></div>
+        
+        <div id="C-N-chart" style="margin: auto; align-content: center; align-self: center; width:600px;height:600px;"></div>
+        
+        <div id="C-O-chart" style="margin: auto; align-content: center; align-self: center; width:600px;height:600px;"></div>
+        
+        <div id="N-O-chart" style="margin: auto; align-content: center; align-self: center; width:600px;height:600px;"></div>
+    </div>
 
     <!-- Appendix -->
     <table id="answer-table" style="height: 769px; margin-left: auto; margin-right: auto; width: 613px;" border="2"><caption>&nbsp;</caption>
@@ -1038,8 +1066,8 @@
     <p style="text-align: center;;"><b>Validity questions</b></p>
     <p id="validity" style="text-align: center;;"><b>A</b>: $QA$, <b>B</b>: $QB$, <b>C</b>: $QC$</p>
 
-    <!-- Javascript -->
-    <script type = "text/javascript">
+     <!-- Javascript -->
+     <script type = "text/javascript">
         window.onmessage = (event) => {
             if (event.data === "Download"){
                 window.print();
@@ -1226,7 +1254,78 @@
                         document.getElementById('neuroticism_level').innerHTML = '<p style="text-align: justify;"><strong>High Neuroticism</strong>Your score on Neuroticism is high, indicating that you are easily upset, even by what most people consider the normal demands of living. People consider you to be sensitive and emotional.</p>';
                         break;
                 }
-
+                
+                //Two-Domain charts
+                //E-A
+                id = 'E-A-chart';
+                datapoints = {
+                    x: personalResults.percentile_estimates.E.Total,
+                    y: personalResults.percentile_estimates.A.Total
+                };
+                renderScatterChart(id,datapoints);
+                //E-C
+                id = 'E-C-chart';
+                datapoints = {
+                    x: personalResults.percentile_estimates.E.Total,
+                    y: personalResults.percentile_estimates.C.Total
+                };
+                renderScatterChart(id,datapoints);
+                //E-N
+                id = 'E-N-chart';
+                datapoints = {
+                    x: personalResults.percentile_estimates.E.Total,
+                    y: personalResults.percentile_estimates.N.Total
+                };
+                renderScatterChart(id,datapoints);
+                //E-O
+                id = 'E-O-chart';
+                datapoints = {
+                    x: personalResults.percentile_estimates.E.Total,
+                    y: personalResults.percentile_estimates.O.Total
+                };
+                renderScatterChart(id,datapoints);
+                //A-C
+                id = 'A-C-chart';
+                datapoints = {
+                    x: personalResults.percentile_estimates.A.Total,
+                    y: personalResults.percentile_estimates.C.Total
+                };
+                renderScatterChart(id,datapoints);
+                //A-N
+                id = 'A-N-chart';
+                datapoints = {
+                    x: personalResults.percentile_estimates.A.Total,
+                    y: personalResults.percentile_estimates.N.Total
+                };
+                renderScatterChart(id,datapoints);
+                //A-O
+                id = 'A-O-chart';
+                datapoints = {
+                    x: personalResults.percentile_estimates.A.Total,
+                    y: personalResults.percentile_estimates.O.Total
+                };
+                renderScatterChart(id,datapoints);
+                //C-N
+                id = 'C-N-chart';
+                datapoints = {
+                    x: personalResults.percentile_estimates.C.Total,
+                    y: personalResults.percentile_estimates.N.Total
+                };
+                renderScatterChart(id,datapoints);
+                //C-O
+                id = 'C-O-chart';
+                datapoints = {
+                    x: personalResults.percentile_estimates.C.Total,
+                    y: personalResults.percentile_estimates.O.Total
+                };
+                renderScatterChart(id,datapoints);
+                //N-O
+                id = 'N-O-chart';
+                datapoints = {
+                    x: personalResults.percentile_estimates.N.Total,
+                    y: personalResults.percentile_estimates.O.Total
+                };
+                renderScatterChart(id,datapoints);
 
                 //Facets
                 for(i=1;i<=6;i++){
@@ -1354,30 +1453,127 @@
                 }
             });
         }
-
-    function renderScatterChart(id,datapoints,annotation){
-        var ctx = document.getElementById(id);
-        var scatterChart = new Chart(ctx, {
-            type: 'scatter',
-            data: {
-                datasets: [{
-                    label: 'Scatter Dataset',
-                    data: datapoints
-                }]
-            },
-            options: {
-                scales: {
-                    xAxes: [{
-                        type: 'linear',
-                        position: 'centerHorizontal'
-                    }]
-                }
+        
+        
+        function renderScatterChart(id,datapoints){
+            var titletext = '';
+            var dimensions = {x:'',y:''};
+            switch(id){
+                case 'E-A-chart':
+                    titletext = 'Style of Well-Being';
+                    dimensions.x = 'Extraversion';
+                    dimensions.y = 'Agreeableness';
+                    break;
+                case 'E-C-chart':
+                    titletext = 'Style of Defense';
+                    dimensions.x = 'Extraversion';
+                    dimensions.y = 'Conscientiousness';
+                    break;
+                case 'E-N-chart':
+                    titletext = 'Style of Anger Control';
+                    dimensions.x = 'Extraversion';
+                    dimensions.y = 'Neuroticism';
+                    break;
+                case 'E-O-chart':
+                    titletext = 'Style of Impulse Control';
+                    dimensions.x = 'Extraversion';
+                    dimensions.y = 'Openness';
+                    break;
+                case 'A-C-chart':
+                    titletext = 'Style of Interests';
+                    dimensions.x = 'Agreeableness';
+                    dimensions.y = 'Conscientiousness';
+                    break;
+                case 'A-N-chart':
+                    titletext = 'Style of Interactions';
+                    dimensions.x = 'Agreeableness';
+                    dimensions.y = 'Neuroticism';
+                    break;
+                case 'A-O-chart':
+                    titletext = 'Style of Activity';
+                    dimensions.x = 'Agreeableness';
+                    dimensions.y = 'Openness';
+                    break;
+                case 'C-N-chart':
+                    titletext = 'Style of Attitudes';
+                    dimensions.x = 'Conscientiousness';
+                    dimensions.y = 'Neuroticism';
+                    break;
+                case 'C-O-chart':
+                    titletext = 'Style of Learning';
+                    dimensions.x = 'Conscientiousness';
+                    dimensions.y = 'Openness';
+                    break;
+                case 'N-O-chart':
+                    titletext = 'Style of Character';
+                    dimensions.x = 'Neuroticism';
+                    dimensions.y = 'Openness';
+                    break;
             }
-        });
-    }
+            var ctx = document.getElementById(id);
+            var data = [{
+                x: [datapoints.x],
+                y: [datapoints.y],
+                mode: 'markers',
+                type: 'scatter',
+                marker: { size: 12 }
+            }];
+            var layout = {
+                xaxis: {
+                    title: dimensions.x,
+                    range: [0,100],
+                    tickmode: "linear", 
+                    tick0: 0,
+                    dtick: 25
+                },
+                yaxis: {
+                    title: dimensions.y,
+                    range: [0, 100],
+                    tickmode: "linear", 
+                    tick0: 0,
+                    dtick: 25
+                },
+                title: titletext,
+                showlegend: false,
+                shapes : [
+                {
+                     x0 : 0.5,
+                     x1 : 0.5,
+                     y0 : 0,
+                     y1 : 1,
+                     line : {
+                     dash : "solid",
+                     color : "rgb(68, 68, 68)",
+                     width : 1
+                    },
+                     type : "line",
+                     xref : "paper",
+                     yref : "paper" 
+                },
+                {
+                     x0 : 0,
+                     x1 : 1,
+                     y0 : 0.5,
+                     y1 : 0.5,
+                     line : {
+                     dash : "solid",
+                     color : "rgb(68, 68, 68)",
+                     width : 1
+                    },
+                     type : "line",
+                     xref : "paper",
+                     yref : "paper"
+                }
+                ]
+            };
+
+<<<<<<< HEAD
+            Plotly.newPlot(ctx, data, layout);
+        }
+=======
 
 
-
+>>>>>>> 8a46c68e5ab4e8b6c5259ee4ffa0f2bac8670bb1
     </script>
 
 
