@@ -8587,9 +8587,9 @@
     document.forms["QuestionForm"]["Age"].value > 100){
       errorMsg = 'Personals left empty.';
     }
-    /*if(!document.forms["QuestionForm"]["A"].value||!document.forms["QuestionForm"]["B"].value||!document.forms["QuestionForm"]["C"].value){
+    if(!document.forms["QuestionForm"]["A"].value||!document.forms["QuestionForm"]["B"].value||!document.forms["QuestionForm"]["C"].value){
       errorMsg = 'Question items left empty.';
-    }*/
+    }
     answers.nickname = String(document.forms["QuestionForm"]["Nick"].value); 
     //answers.nickname = "tester" + String(Math.floor(Math.random()*100));
     answers.sex = String(document.forms["QuestionForm"]["Sex"].value);
@@ -8603,8 +8603,8 @@
       if (document.forms["QuestionForm"]["Q"+i].value){
         answers.psycho.push(Number(document.forms["QuestionForm"]["Q"+i].value));
       } else{
-        //errorMsg = 'Question items left empty.'
-        answers.psycho.push(Math.floor(Math.random()*5)+1);
+        errorMsg = 'Question items left empty.'
+        //answers.psycho.push(Math.floor(Math.random()*5)+1);
       }
     }
     if(errorMsg === ''){
