@@ -290,7 +290,23 @@
   </select>
   <br />&nbsp; <br />
   <p>When selecting your country, please indicate the country to which you feel you belong the most, whether by virtue of citizenship, length of residence, or acculturation.</p>
-  <br>&nbsp;
+  <p>&nbsp;<span style="font-size: small;"><strong>Comparison sample</strong>:&nbsp; &nbsp;&nbsp;</span><select name="CompareTo">
+    <option value="">Select the sample you would like to be compared to.
+    <option value="">------------------------
+    <option value='UK & Ireland, Age 14-17'>UK & Ireland, Age 14-17
+    <option value='UK & Ireland, Age 18-29'>UK & Ireland, Age 18-29
+        <option value='UK & Ireland, Age 30+'>UK & Ireland, Age 30+
+        <option value='China, All ages'>China, All ages
+        <option value='China, Age 18-29'>China, Age 18-29
+        <option value='India, All ages'>India, All ages
+        <option value='India, Age 18-29'>India, Age 18-29
+        <option value='Pakistan, All ages'>Pakistan, All ages
+        <option value='Thailand, All ages'>Thailand, All ages
+        <option value='Thailand, Age 18-29'>Thailand, Age 18-29
+  </select>
+
+  <p>&nbsp;<span style="font-size: small;"><strong>Email address (optional)</strong>:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><input name="Email" size="30" type="email" value="" /></p>
+  
   <br>&nbsp;
   <table border>
   <tr>
@@ -8582,6 +8598,8 @@
     !document.forms["QuestionForm"]["Age"].value||
     !document.forms["QuestionForm"]["Sex"].value||
     !document.forms["QuestionForm"]["Country"].value||
+    !document.forms["QuestionForm"]["CompareTo"].value||
+    (Boolean(document.forms["QuestionForm"]["Email"].value) && !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.forms["QuestionForm"]["Email"].value)))||
     isNaN(document.forms["QuestionForm"]["Age"].value)||
     document.forms["QuestionForm"]["Age"].value < 14||
     document.forms["QuestionForm"]["Age"].value > 100){
@@ -8596,6 +8614,8 @@
     answers.age = Number(document.forms["QuestionForm"]["Age"].value);
     //answers.age = Math.floor(Math.random()*3) + 14;
     answers.country = String(document.forms["QuestionForm"]["Country"].value);
+    answers.compareTo = String(document.forms["QuestionForm"]["CompareTo"].value);
+    answers.email = String(document.forms["QuestionForm"]["Email"].value);
     answers.legal = {"A":String(document.forms["QuestionForm"]["A"].value),"B":String(document.forms["QuestionForm"]["B"].value),"C":String(document.forms["QuestionForm"]["C"].value)};
     answers.psycho = [];
     var i;

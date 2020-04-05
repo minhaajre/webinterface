@@ -27,7 +27,7 @@
         <p style="text-align: justify;">
             This report compares 
             <span style="color: #800080;"><strong>$Nick</strong></span> aged <b>$Age</b> who is <b>$Sex</b>
-            from <b>$Country</b>  with the standard samples of UK and Ireland in same age group but not gender. We are in the process of accumulating data for Pakistan and once we have enough we will start using those norms. ​ This report estimates the individual's level on each of the five broad personality domains of the Five-Factor Model. The description of each one of the five broad domains is followed by a more detailed description of personality according to the six subdomains that comprise each domain. 
+            from <b>$Country</b>  with the <b>$CompareTo</b> sample but not gender. We are in the process of accumulating data for Pakistan and once we have enough we will start using those norms. ​ This report estimates the individual's level on each of the five broad personality domains of the Five-Factor Model. The description of each one of the five broad domains is followed by a more detailed description of personality according to the six subdomains that comprise each domain. 
         ​</p>
         <p style="text-align: justify;">
             
@@ -1198,6 +1198,7 @@
                 document.getElementById('introduction').innerHTML = document.getElementById("introduction").innerHTML.replace('$Sex',personalResults.sex.toLowerCase());
                 document.getElementById('introduction').innerHTML = document.getElementById("introduction").innerHTML.replace('$Age',personalResults.age);
                 document.getElementById('introduction').innerHTML = document.getElementById("introduction").innerHTML.replace('$Country',personalResults.country);
+                document.getElementById('introduction').innerHTML = document.getElementById("introduction").innerHTML.replace('$CompareTo',personalResults.compareTo);
                 
                 //Creating Domain Chart
                 id = 'domain-chart';
