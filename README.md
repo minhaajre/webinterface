@@ -1,6 +1,6 @@
 # webinterface
 
-This project documents the structure, coding and functionality of the web interface of our Big Five Test translted into Urdu which is based upon NEO IPIP 300 item version available on Dr Johnson's website here. https://www.personal.psu.edu/~j5j/IPIP/
+This project documents the structure, coding and functionality of the web interface of our Big Five Test translated into Urdu which is based upon NEO IPIP 300 item version available on Dr Johnson's website here. https://www.personal.psu.edu/~j5j/IPIP/
 
 Test is divided into 3 main pages
 
