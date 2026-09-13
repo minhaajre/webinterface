@@ -14,3 +14,11 @@ Big Five NEO IPIP-300 test interface.
 ## Safety
 - Preserve existing project conventions.
 - Do not commit, tag, push, publish, or modify generated artifacts unless explicitly requested.
+
+## Decisions as multichoice (mandatory)
+
+- Whenever a user decision is required — action items, choices, recommendations — present it as a
+  multiple-choice question with pickable options (2–5, one line each) via the surface's question
+  popup (Hermes: the `clarify` tool, "the questioner"). Never as prose options buried in a report or
+  narrative. One question at a time; the popup carries the decision, the message carries the reasoning.
+- Source of truth: `master-llm-instructions/settings/AGENTS.md` ("Decisions as multichoice").
